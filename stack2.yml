@@ -1,0 +1,19 @@
+version: "3.2"
+
+services:
+  demo1:
+    image: cdunkelb/service1
+    deploy:
+      replicas: 1
+      labels:
+        com.docker.lb.hosts: demo.cdunkelb.com
+        com.docker.lb.network: demo-network
+        com.docker.lb.port: 80
+        com.docker.lb.context_root: /app1
+        com.docker.lb.context_root_rewrite: "true"
+    networks:
+      - demo1
+
+networks:
+  demo1:
+    driver: overlay
