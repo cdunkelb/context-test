@@ -1,0 +1,105 @@
+[
+    {
+        "ID": "ulaf47cclr97owsljq7scw5pp",
+        "Version": {
+            "Index": 1155
+        },
+        "CreatedAt": "2018-07-11T14:13:08.782848668Z",
+        "UpdatedAt": "2018-07-11T14:13:08.788321089Z",
+        "Spec": {
+            "Name": "demo-1-stack_demo1",
+            "Labels": {
+                "com.docker.lb.context_root": "/app1",
+                "com.docker.lb.context_root_rewrite": "true",
+                "com.docker.lb.hosts": "demo.cdunkelb.com",
+                "com.docker.lb.network": "demo1",
+                "com.docker.lb.port": "80",
+                "com.docker.stack.image": "cdunkelb/service1",
+                "com.docker.stack.namespace": "demo-1-stack",
+                "com.docker.ucp.access.label": "/",
+                "com.docker.ucp.collection": "swarm",
+                "com.docker.ucp.collection.root": "true",
+                "com.docker.ucp.collection.swarm": "true"
+            },
+            "TaskTemplate": {
+                "ContainerSpec": {
+                    "Image": "cdunkelb/service1:latest@sha256:a084acc81f9075f2257edae29b1d55addb5e16fe2fa59de53cdeda3ac21709ff",
+                    "Labels": {
+                        "com.docker.stack.namespace": "demo-1-stack",
+                        "com.docker.ucp.access.label": "/",
+                        "com.docker.ucp.collection": "swarm",
+                        "com.docker.ucp.collection.root": "true",
+                        "com.docker.ucp.collection.swarm": "true"
+                    },
+                    "Privileges": {
+                        "CredentialSpec": null,
+                        "SELinuxContext": null
+                    },
+                    "StopGracePeriod": 10000000000,
+                    "DNSConfig": {}
+                },
+                "Resources": {},
+                "RestartPolicy": {
+                    "Condition": "any",
+                    "Delay": 5000000000,
+                    "MaxAttempts": 0
+                },
+                "Placement": {
+                    "Constraints": [
+                        "node.labels.com.docker.ucp.collection.swarm==true",
+                        "node.labels.com.docker.ucp.orchestrator.swarm==true"
+                    ],
+                    "Platforms": [
+                        {
+                            "Architecture": "amd64",
+                            "OS": "linux"
+                        }
+                    ]
+                },
+                "Networks": [
+                    {
+                        "Target": "uvsohoamy4nyw4fh98flgo3mz",
+                        "Aliases": [
+                            "demo1"
+                        ]
+                    }
+                ],
+                "ForceUpdate": 0,
+                "Runtime": "container"
+            },
+            "Mode": {
+                "Replicated": {
+                    "Replicas": 1
+                }
+            },
+            "UpdateConfig": {
+                "Parallelism": 1,
+                "FailureAction": "pause",
+                "Monitor": 5000000000,
+                "MaxFailureRatio": 0,
+                "Order": "stop-first"
+            },
+            "RollbackConfig": {
+                "Parallelism": 1,
+                "FailureAction": "pause",
+                "Monitor": 5000000000,
+                "MaxFailureRatio": 0,
+                "Order": "stop-first"
+            },
+            "EndpointSpec": {
+                "Mode": "vip"
+            }
+        },
+        "Endpoint": {
+            "Spec": {
+                "Mode": "vip"
+            },
+            "VirtualIPs": [
+                {
+                    "NetworkID": "uvsohoamy4nyw4fh98flgo3mz",
+                    "Addr": "10.0.1.2/24"
+                }
+            ]
+        }
+    }
+]
