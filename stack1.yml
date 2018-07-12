@@ -7,7 +7,7 @@ services:
       replicas: 1
       labels:
         com.docker.lb.hosts: demo.cdunkelb.com
-        com.docker.lb.network: demo-network
+        com.docker.lb.network: demo1
         com.docker.lb.port: 80
         com.docker.lb.context_root: /app1
         com.docker.lb.context_root_rewrite: "true"
